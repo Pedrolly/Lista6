@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,15 +29,15 @@ public class CSV<listaJogos> {
             StringBuilder builder = new StringBuilder();
 
             func.stream().
-                    filter((f) -> f.getNumFilhos()!=0).
+                    filter((f) -> f.getPlataforma()!= "ps4").
                     forEach((f) -> {
-                        builder.append(f.getId() + ",").
-                                append(f.getNumFilhos() + ",").
-                                append(f.getSalario()+ "\n");
+                        builder.append(f.getNome() + ",");
+                                builder.append().append(gerarCSVFuncSemFilhos(arquivoFinal));
+                                builder.append();
                     });
 
             Files.writeString(arquivoFinal, builder.toString(),
-                    StandardOpenOption.APPEND);
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -45,9 +46,9 @@ public class CSV<listaJogos> {
 
     }
 
-    private static List<Funcionario> leCsv(Path arquivo){
+    private static List<Jogo> leCsv(Path arquivo){
 
-        List<Funcionario> funcionarios = new ArrayList<>();
+        List<Jogo> funcionarios = new ArrayList<>();
 
         try {
             List<String> linhas = Files.readAllLines(arquivo);
@@ -57,7 +58,7 @@ public class CSV<listaJogos> {
 
                 String[] linhaSplit = linha.split(",");
 
-                Funcionario func = new Funcionario
+                Jogo func = new Jogo();
                         (Integer.parseInt(linhaSplit[0]),
                                 Integer.parseInt(linhaSplit[3]),
                                 Double.parseDouble(linhaSplit[4]));

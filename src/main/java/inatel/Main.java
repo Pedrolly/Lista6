@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Main {
-    Path arquivo = Paths.get("funcionarios.csv");
-
-        CSVUtils.gerarCSVFuncSemFilhos(arquivo);
+public class Main<arquivo> {
+    public static void main(String[] args) {
+        CSV csv = new CSV;
+        ArrayList<Jogo> jogos = new ArrayList<>();
+        csv.equals(jogos);
+        Path arquivo = Paths.get("funcionarios.csv");
+    }
 }
