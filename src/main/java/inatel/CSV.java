@@ -7,7 +7,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
+import modelos.plataformas;
+import modelos.publicadoras;
 public class CSV<listaJogos> {
     public static List<modelos.jogo> readGameCsv(Path csvFilePath){
 
